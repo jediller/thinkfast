@@ -1,0 +1,27 @@
+#!/bin/bash
+r=$(date +%s%N | cut -b10-19)
+while (( ${r:0:1} == 0 ))
+do
+   r=$(date +%s%N | cut -b10-19)
+done
+RANDOM=$r
+
+while (( 1 == 1 ))
+do
+   x=`echo $[ $RANDOM % 8999 + 1000]`
+   clear
+   echo $x 'repeat'
+   sleep 2
+   echo 'beat'
+   sleep 1
+   echo 'beat'
+   sleep 1
+   printf 'answer: '
+   sleep 2
+   a=${x:0:1}; (( a += 3 )); if (( a >= 10 )); then (( a -= 10 )); fi
+   b=${x:1:1}; (( b += 3 )); if (( b >= 10 )); then (( b -= 10 )); fi
+   c=${x:2:1}; (( c += 3 )); if (( c >= 10 )); then (( c -= 10 )); fi
+   d=${x:3:1}; (( d += 3 )); if (( d >= 10 )); then (( d -= 10 )); fi
+   echo $a$b$c$d
+   sleep 1
+done
