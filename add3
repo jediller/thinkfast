@@ -1,7 +1,5 @@
 #!/bin/bash
-#
-#
-#
+
 r=$(date +%s%N | cut -b10-19)
 while (( ${r:0:1} == 0 ))
 do
